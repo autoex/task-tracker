@@ -9,31 +9,31 @@ function App() {
             "userId": 1,
             "id": 1,
             "title": "delectus aut autem",
-            "completed": false
+            "reminder": false
         },
         {
             "userId": 1,
             "id": 2,
             "title": "quis ut nam facilis et officia qui",
-            "completed": false
+            "reminder": false
         },
         {
             "userId": 1,
             "id": 3,
             "title": "fugiat veniam minus",
-            "completed": false
+            "reminder": false
         },
         {
             "userId": 1,
             "id": 4,
             "title": "et porro tempora",
-            "completed": true
+            "reminder": true
         },
         {
             "userId": 1,
             "id": 5,
             "title": "laboriosam mollitia et enim ",
-            "completed": false
+            "reminder": false
         }
     ]);
 
@@ -42,10 +42,16 @@ function App() {
 
         setTasks(tasks.filter(task=> task.id !== id))
     }
+
+    const toggleReminder = (id) => {
+        console.log(id )
+        setTasks(tasks.map(task=> task.id === id ? {...task, reminder: !task.reminder} : task) )
+    }
   return (
     <div className="container">
    <Header/>
-   <Tasks tasks={tasks} deleteTask={deleteTask} />
+        {tasks.length > 0 ? <Tasks tasks={tasks} deleteTask={deleteTask} toggleReminder={toggleReminder} /> : 'No tasks yet.'}
+
    <Footer/>
     </div>
   );
