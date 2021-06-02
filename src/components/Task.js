@@ -5,11 +5,12 @@ import React from 'react'
 
 
 
-const Task = ({userId, id, title, reminder, deleteTask, toggleReminder }) => {
+const Task = ({date, id, title, reminder, deleteTask, toggleReminder }) => {
 
     return (
         <>
             <div className={reminder ? 'task reminder' : 'task'} onDoubleClick={()=> toggleReminder(id)}><h3>{title} <TiDelete onClick={()=> {deleteTask(id)}} style={{color: 'red', cursor:'pointer'}}/></h3>
+                <p>{date}</p>
            </div>
         </>
 

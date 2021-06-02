@@ -2,35 +2,36 @@ import Header from "./components/Header";
 import Footer from "./components/Footer";
 import Tasks from "./components/Tasks";
 import React, {useState} from 'react'
+import AddTask from "./components/AddTask";
 
 function App() {
     const [tasks, setTasks] = useState([
         {
-            "userId": 1,
+            "date": 'Feb 5th on 2:30pm',
             "id": 1,
             "title": "delectus aut autem",
             "reminder": false
         },
         {
-            "userId": 1,
+            "date": 'Feb 6th on 4:30pm',
             "id": 2,
             "title": "quis ut nam facilis et officia qui",
             "reminder": false
         },
         {
-            "userId": 1,
+            "date": 'Feb 6th on 7:00pm',
             "id": 3,
             "title": "fugiat veniam minus",
             "reminder": false
         },
         {
-            "userId": 1,
+            "date": 'Feb 7th on 2:00pm',
             "id": 4,
             "title": "et porro tempora",
             "reminder": true
         },
         {
-            "userId": 1,
+            "date": 'Feb 7th on 2:30pm',
             "id": 5,
             "title": "laboriosam mollitia et enim ",
             "reminder": false
@@ -50,6 +51,7 @@ function App() {
   return (
     <div className="container">
    <Header/>
+   <AddTask/>
         {tasks.length > 0 ? <Tasks tasks={tasks} deleteTask={deleteTask} toggleReminder={toggleReminder} /> : 'No tasks yet.'}
 
    <Footer/>
