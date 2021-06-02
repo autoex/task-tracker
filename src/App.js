@@ -32,7 +32,7 @@ function App() {
         {
             "userId": 1,
             "id": 5,
-            "title": "laboriosam mollitia et enim quasi adipisci quia provident illum",
+            "title": "laboriosam mollitia et enim ",
             "completed": false
         }
     ]);

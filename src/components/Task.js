@@ -1,14 +1,14 @@
 import PropTypes from 'prop-types'
+import {TiDelete} from 'react-icons/ti'
 
 
 
 
-const Task = ({title}) => {
-
-
+const Task = ({userId, id, title, completed }) => {
     return (
         <>
-            <div className={'task'}>{title}</div>
+            <div className={'task'}><h3>{title} <TiDelete/></h3>
+           </div>
         </>
 
     );
@@ -20,7 +20,7 @@ Task.defaultProps = {
 }
 
 Task.propTypes = {
-    title: PropTypes.string
+        title: PropTypes.string
 }
 
 export default Task;
