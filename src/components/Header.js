@@ -2,14 +2,12 @@ import PropTypes from 'prop-types'
 import React from 'react'
 import Button from "./Button";
 
-const Header = ({title}) => {
-    const onClick =()=> {
-        console.log('Hello')
-    }
+const Header = ({title, toggleFormActive, formActive}) => {
+
     return (
         <header className={'header'}>
             <h1>{title}</h1>
-            <Button text={'Add'} style={'btn'} color={'green'} onClick={onClick}   />
+            <Button text={'Add'} style={'btn'} color={'green'} toggleFormActive={toggleFormActive} formActive={formActive}   />
         </header>
     );
 }

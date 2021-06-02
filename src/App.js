@@ -37,6 +37,7 @@ function App() {
             "reminder": false
         }
     ]);
+    const [formActive, setFormActive] = useState(false)
 
     const deleteTask =(id)=> {
         // console.log('Id is: ', id)
@@ -48,10 +49,15 @@ function App() {
         console.log(id )
         setTasks(tasks.map(task=> task.id === id ? {...task, reminder: !task.reminder} : task) )
     }
+
+    const toggleFormActive = () => {
+        setFormActive(!formActive)
+    }
   return (
     <div className="container">
-   <Header/>
-   <AddTask/>
+   <Header toggleFormActive={toggleFormActive} formActive={formActive}/>
+        {formActive && <AddTask/>}
+
         {tasks.length > 0 ? <Tasks tasks={tasks} deleteTask={deleteTask} toggleReminder={toggleReminder} /> : 'No tasks yet.'}
 
    <Footer/>
