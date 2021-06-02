@@ -3,13 +3,13 @@ import Task from "./Task";
 
 
 
-const Tasks = ({tasks}) => {
+const Tasks = ({tasks, deleteTask}) => {
 
 
     return (
         <>
 
-                {tasks.map(task => <Task key={task.id} {...task}/>)}
+                {tasks.map(task => <Task key={task.id} {...task} deleteTask={deleteTask}/>)}
 
         </>
 
