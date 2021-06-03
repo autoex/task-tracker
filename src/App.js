@@ -37,7 +37,7 @@ function App() {
             "reminder": false
         }
     ]);
-    const [formActive, setFormActive] = useState(true)
+    const [formActive, setFormActive] = useState(false)
 
     const deleteTask = (id) => {
         // console.log('Id is: ', id)
@@ -62,7 +62,8 @@ function App() {
         const newTask = {...task, id};
         console.log(newTask)
 
-        setTasks([...tasks, newTask])
+        setTasks([...tasks, newTask]);
+        setFormActive(false)
     }
     return (
         <div className="container">
