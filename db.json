@@ -1,22 +1,3 @@
 {
-  "tasks": [
-    {
-      "date": "2021-06-04",
-      "id": 2,
-      "title": "quis ut nam facilis et officia qui",
-      "reminder": false
-    },
-    {
-      "date": "2021-06-05",
-      "id": 3,
-      "title": "fugiat veniam minus",
-      "reminder": false
-    },
-    {
-      "date": "2021-06-11",
-      "id": 4,
-      "title": "et porro tempora",
-      "reminder": true
-    }
-  ]
+  "tasks": []
 }

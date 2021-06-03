@@ -38,11 +38,18 @@ function App() {
         setFormActive(!formActive)
     };
 
-    const addTask = (task) => {
-        let id = Date.now();
+    const addTask = async (task) => {
+        const res = await fetch(`http://localhost:3004/tasks/`, {method: 'POST', headers: {'Content-type': 'application/json'}, body: JSON.stringify(task)});
+
+        const data = await res.json();
+
+        setTasks([...tasks, data])
+
+
+        /*let id = Date.now();
         const newTask = {...task, id};
         setTasks([...tasks, newTask]);
-        setFormActive(false)
+        setFormActive(false)*/
     };
     return (
         <div className="container">
