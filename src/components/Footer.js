@@ -14,7 +14,7 @@ Footer.defaultProps = {
 };
 
 Footer.propTypes = {
-     title: PropTypes.string
+    title: PropTypes.string
 };
 
 export default Footer;

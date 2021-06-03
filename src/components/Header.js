@@ -3,11 +3,11 @@ import React from 'react'
 import Button from "./Button";
 
 const Header = ({title, toggleFormActive, formActive}) => {
-
     return (
         <header className={'header'}>
             <h1>{title}</h1>
-            <Button text={'Add'} styleName={'btn'} color={'green'} toggleFormActive={toggleFormActive} formActive={formActive}   />
+            <Button text={'Add'} styleName={'btn'} color={'green'} toggleFormActive={toggleFormActive}
+                    formActive={formActive}/>
         </header>
     );
 };
@@ -17,7 +17,7 @@ Header.defaultProps = {
 };
 
 Header.propTypes = {
-     title: PropTypes.string
+    title: PropTypes.string
 };
 
 export default Header;

@@ -8,19 +8,18 @@ function App() {
     const [tasks, setTasks] = useState([]);
     const [formActive, setFormActive] = useState(false);
     useEffect(() => {
-    const getTasks = async ()=> {
-        const tasksFromServer = await fetchTasks();
-        setTasks(tasksFromServer)
+        const getTasks = async () => {
+            const tasksFromServer = await fetchTasks();
+            setTasks(tasksFromServer)
 
-    };
+        };
         getTasks()
 
     }, []);
 
     const fetchTasks = async () => {
-        const resp = await  fetch('http://localhost:3004/tasks');
-       return  await resp.json();
-
+        const resp = await fetch('http://localhost:3004/tasks');
+        return await resp.json();
 
 
     };

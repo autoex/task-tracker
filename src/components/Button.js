@@ -2,7 +2,8 @@ import PropTypes from 'prop-types'
 import React from 'react'
 
 const Button = ({text, styleName, color, toggleFormActive, formActive}) => {
-    return <button style={formActive ? {backgroundColor: 'red'} : {backgroundColor: color}} className={styleName} onClick={toggleFormActive}>{formActive ? 'Close' : text}</button>
+    return <button style={formActive ? {backgroundColor: 'red'} : {backgroundColor: color}} className={styleName}
+                   onClick={toggleFormActive}>{formActive ? 'Close' : text}</button>
 
 };
 
