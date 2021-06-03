@@ -1,70 +1,53 @@
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import Tasks from "./components/Tasks";
-import React, {useState} from 'react'
+import React, {useState, useEffect} from 'react'
 import AddTask from "./components/AddTask";
 
 function App() {
-    const [tasks, setTasks] = useState([
-        {
-            "date": 'Feb 5th on 2:30pm',
-            "id": 1,
-            "title": "delectus aut autem",
-            "reminder": false
-        },
-        {
-            "date": 'Feb 6th on 4:30pm',
-            "id": 2,
-            "title": "quis ut nam facilis et officia qui",
-            "reminder": false
-        },
-        {
-            "date": 'Feb 6th on 7:00pm',
-            "id": 3,
-            "title": "fugiat veniam minus",
-            "reminder": false
-        },
-        {
-            "date": 'Feb 7th on 2:00pm',
-            "id": 4,
-            "title": "et porro tempora",
-            "reminder": true
-        },
-        {
-            "date": 'Feb 7th on 2:30pm',
-            "id": 5,
-            "title": "laboriosam mollitia et enim ",
-            "reminder": false
-        }
-    ]);
-    const [formActive, setFormActive] = useState(false)
+    const [tasks, setTasks] = useState([]);
+    const [formActive, setFormActive] = useState(false);
+    useEffect(() => {
+    const getTasks = async ()=> {
+        const tasksFromServer = await fetchTasks();
+        setTasks(tasksFromServer)
+
+    };
+        getTasks()
+
+    }, []);
+
+    const fetchTasks = async () => {
+        const resp = await  fetch('http://localhost:3004/tasks');
+       return  await resp.json();
+
+
+
+    };
 
     const deleteTask = (id) => {
-        // console.log('Id is: ', id)
 
         setTasks(tasks.filter(task => task.id !== id))
-    }
+    };
 
     const toggleReminder = (id) => {
-        console.log(id)
         setTasks(tasks.map(task => task.id === id ? {...task, reminder: !task.reminder} : task))
-    }
+    };
 
     const toggleFormActive = () => {
         setFormActive(!formActive)
-    }
+    };
 
 
     const addTask = (task) => {
 
-        let id = Date.now()
+        let id = Date.now();
 
         const newTask = {...task, id};
-        console.log(newTask)
 
         setTasks([...tasks, newTask]);
         setFormActive(false)
-    }
+    };
     return (
         <div className="container">
             <Header toggleFormActive={toggleFormActive} formActive={formActive}/>

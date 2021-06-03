@@ -16,7 +16,7 @@ const AddTask = ({addTask}) => {
         setDate('');
         setTitle('');
         setReminder(false);
-    }
+    };
     return (
         <form className='add-form' onSubmit={onSubmit}>
             <div className='form-control'>
@@ -36,7 +36,7 @@ const AddTask = ({addTask}) => {
             <input type="submit" className='btn btn-block' value='Save Task'/>
         </form>
     );
-}
+};
 
 
 

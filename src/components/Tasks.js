@@ -14,9 +14,9 @@ const Tasks = ({tasks, deleteTask, toggleReminder}) => {
         </>
 
     );
-}
+};
 
 Task.propTypes = {
     tasks: PropTypes.object
-}
+};
 export default Tasks;

@@ -15,15 +15,15 @@ const Task = ({date, id, title, reminder, deleteTask, toggleReminder }) => {
         </>
 
     );
-}
+};
 
 
 Task.defaultProps = {
     title: 'Your task should be here'
-}
+};
 
 Task.propTypes = {
         title: PropTypes.string
-}
+};
 
 export default Task;

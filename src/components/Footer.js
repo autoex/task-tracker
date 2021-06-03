@@ -7,14 +7,14 @@ const Footer = ({title}) => {
             {title}
         </footer>
     );
-}
+};
 
 Footer.defaultProps = {
     title: 'Copyright © 2021 Facebook Inc.'
-}
+};
 
 Footer.propTypes = {
      title: PropTypes.string
-}
+};
 
 export default Footer;
