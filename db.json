@@ -1,12 +1,6 @@
 {
   "tasks": [
     {
-      "date": "2021-06-03",
-      "id": 1,
-      "title": "delectus aut autem",
-      "reminder": false
-    },
-    {
       "date": "2021-06-04",
       "id": 2,
       "title": "quis ut nam facilis et officia qui",
@@ -23,12 +17,6 @@
       "id": 4,
       "title": "et porro tempora",
       "reminder": true
-    },
-    {
-      "date": "2021-07-23",
-      "id": 5,
-      "title": "laboriosam mollitia et enim ",
-      "reminder": false
     }
   ]
 }

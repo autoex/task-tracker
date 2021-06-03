@@ -21,7 +21,12 @@ function App() {
         return await resp.json();
     };
 
-    const deleteTask = (id) => {
+    const deleteTask = async (id) => {
+
+        await fetch(`http://localhost:3004/tasks/${id}`, {method: 'DELETE'});
+
+
+
         setTasks(tasks.filter(task => task.id !== id))
     };
 
