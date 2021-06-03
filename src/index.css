@@ -89,6 +89,7 @@ body {
   margin: 5px;
   padding: 3px 7px;
   font-size: 17px;
+  position: relative;
 }
 
 .form-control-check {
@@ -109,4 +110,13 @@ body {
 footer {
   margin-top: 30px;
   text-align: center;
+}
+.input-error {
+  border: 1px solid red;
+}
+.error-message {
+  color: red;
+  position: absolute;
+  font-size: 11px;
+  padding-left: 5px;
 }
