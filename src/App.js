@@ -3,6 +3,12 @@ import Footer from "./components/Footer";
 import Tasks from "./components/Tasks";
 import React, {useState, useEffect} from 'react'
 import AddTask from "./components/AddTask";
+import {
+    BrowserRouter as Router,
+    Switch,
+    Route
+} from "react-router-dom";
+import About from "./components/About";
 
 function App() {
     const [tasks, setTasks] = useState([]);
@@ -31,7 +37,6 @@ function App() {
         await fetch(`http://localhost:3004/tasks/${id}`, {method: 'DELETE'});
 
 
-
         setTasks(tasks.filter(task => task.id !== id))
     };
 
@@ -39,11 +44,12 @@ function App() {
         const taskToggle = await fetchTask(id);
         const updTask = {...taskToggle, reminder: !taskToggle.reminder};
 
-        const res = await fetch(`http://localhost:3004/tasks/${id}`, {method: 'PUT', headers: {'Content-type': 'application/json'}, body: JSON.stringify(updTask)});
+        const res = await fetch(`http://localhost:3004/tasks/${id}`, {
+            method: 'PUT',
+            headers: {'Content-type': 'application/json'},
+            body: JSON.stringify(updTask)
+        });
         const data = await res.json();
-        console.log(data);
-
-
         setTasks(tasks.map(task => task.id === id ? {...task, reminder: data.reminder} : task))
     };
 
@@ -52,26 +58,39 @@ function App() {
     };
 
     const addTask = async (task) => {
-        const res = await fetch(`http://localhost:3004/tasks/`, {method: 'POST', headers: {'Content-type': 'application/json'}, body: JSON.stringify(task)});
+        const res = await fetch(`http://localhost:3004/tasks/`, {
+            method: 'POST',
+            headers: {'Content-type': 'application/json'},
+            body: JSON.stringify(task)
+        });
 
         const data = await res.json();
-
-        setTasks([...tasks, data])
+        setTasks([...tasks, data]);
 
 
         /*let id = Date.now();
         const newTask = {...task, id};
-        setTasks([...tasks, newTask]);
-        setFormActive(false)*/
+        setTasks([...tasks, newTask]);*/
+        setFormActive(false)
     };
     return (
-        <div className="container">
-            <Header toggleFormActive={toggleFormActive} formActive={formActive}/>
-            {formActive && <AddTask addTask={addTask}/>}
-            {tasks.length > 0 ?
-                <Tasks tasks={tasks} deleteTask={deleteTask} toggleReminder={toggleReminder}/> : 'No tasks yet.'}
-            <Footer/>
-        </div>
+        <Router>
+            <div className="container">
+                <Header toggleFormActive={toggleFormActive} formActive={formActive}/>
+                <Switch>
+                    <Route path='/' exact render={() => (
+                        <>
+                            {formActive && <AddTask addTask={addTask}/>}
+                            {tasks.length > 0 ?
+                                <Tasks tasks={tasks} deleteTask={deleteTask}
+                                       toggleReminder={toggleReminder}/> : 'No tasks yet.'}
+                        </>
+                    )}/>
+                    <Route path={'/about'} component={About}/>
+                </Switch>
+                <Footer/>
+            </div>
+        </Router>
     );
 }
 

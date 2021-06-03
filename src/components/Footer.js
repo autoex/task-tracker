@@ -1,20 +1,15 @@
-import PropTypes from 'prop-types'
 import React from 'react'
+import {Link} from "react-router-dom";
 
-const Footer = ({title}) => {
+const Footer = () => {
     return (
         <footer>
-            {title}
+            <div><Link to={'/about'}>about</Link></div>
+            <div>Copyright © 2021 TaskTracker.</div>
         </footer>
     );
 };
 
-Footer.defaultProps = {
-    title: 'Copyright © 2021 Facebook Inc.'
-};
 
-Footer.propTypes = {
-    title: PropTypes.string
-};
 
 export default Footer;
