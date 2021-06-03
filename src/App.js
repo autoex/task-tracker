@@ -14,18 +14,14 @@ function App() {
 
         };
         getTasks()
-
     }, []);
 
     const fetchTasks = async () => {
         const resp = await fetch('http://localhost:3004/tasks');
         return await resp.json();
-
-
     };
 
     const deleteTask = (id) => {
-
         setTasks(tasks.filter(task => task.id !== id))
     };
 
@@ -37,13 +33,9 @@ function App() {
         setFormActive(!formActive)
     };
 
-
     const addTask = (task) => {
-
         let id = Date.now();
-
         const newTask = {...task, id};
-
         setTasks([...tasks, newTask]);
         setFormActive(false)
     };
@@ -51,10 +43,8 @@ function App() {
         <div className="container">
             <Header toggleFormActive={toggleFormActive} formActive={formActive}/>
             {formActive && <AddTask addTask={addTask}/>}
-
             {tasks.length > 0 ?
                 <Tasks tasks={tasks} deleteTask={deleteTask} toggleReminder={toggleReminder}/> : 'No tasks yet.'}
-
             <Footer/>
         </div>
     );

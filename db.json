@@ -1,31 +1,31 @@
 {
   "tasks": [
     {
-      "date": "Feb 5th on 2:30pm",
+      "date": "2021-06-03",
       "id": 1,
       "title": "delectus aut autem",
       "reminder": false
     },
     {
-      "date": "Feb 6th on 4:30pm",
+      "date": "2021-06-04",
       "id": 2,
       "title": "quis ut nam facilis et officia qui",
       "reminder": false
     },
     {
-      "date": "Feb 6th on 7:00pm",
+      "date": "2021-06-05",
       "id": 3,
       "title": "fugiat veniam minus",
       "reminder": false
     },
     {
-      "date": "Feb 7th on 2:00pm",
+      "date": "2021-06-11",
       "id": 4,
       "title": "et porro tempora",
       "reminder": true
     },
     {
-      "date": "Feb 7th on 2:30pm",
+      "date": "2021-07-23",
       "id": 5,
       "title": "laboriosam mollitia et enim ",
       "reminder": false
