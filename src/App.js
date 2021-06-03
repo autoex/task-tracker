@@ -39,30 +39,42 @@ function App() {
     ]);
     const [formActive, setFormActive] = useState(true)
 
-    const deleteTask =(id)=> {
+    const deleteTask = (id) => {
         // console.log('Id is: ', id)
 
-        setTasks(tasks.filter(task=> task.id !== id))
+        setTasks(tasks.filter(task => task.id !== id))
     }
 
     const toggleReminder = (id) => {
-        console.log(id )
-        setTasks(tasks.map(task=> task.id === id ? {...task, reminder: !task.reminder} : task) )
+        console.log(id)
+        setTasks(tasks.map(task => task.id === id ? {...task, reminder: !task.reminder} : task))
     }
 
     const toggleFormActive = () => {
         setFormActive(!formActive)
     }
-  return (
-    <div className="container">
-   <Header toggleFormActive={toggleFormActive} formActive={formActive}/>
-        {formActive && <AddTask/>}
 
-        {tasks.length > 0 ? <Tasks tasks={tasks} deleteTask={deleteTask} toggleReminder={toggleReminder} /> : 'No tasks yet.'}
 
-   <Footer/>
-    </div>
-  );
+    const addTask = (task) => {
+
+        let id = Date.now()
+
+        const newTask = {...task, id};
+        console.log(newTask)
+
+        setTasks([...tasks, newTask])
+    }
+    return (
+        <div className="container">
+            <Header toggleFormActive={toggleFormActive} formActive={formActive}/>
+            {formActive && <AddTask addTask={addTask}/>}
+
+            {tasks.length > 0 ?
+                <Tasks tasks={tasks} deleteTask={deleteTask} toggleReminder={toggleReminder}/> : 'No tasks yet.'}
+
+            <Footer/>
+        </div>
+    );
 }
 
 export default App;

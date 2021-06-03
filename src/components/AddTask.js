@@ -1,15 +1,27 @@
 import React, {useState} from 'react'
 
-const AddTask = () => {
+const AddTask = ({addTask}) => {
 
-    const [task, setTask] = useState('');
+    const [title, setTitle] = useState('');
     const [date, setDate] = useState('');
     const [reminder, setReminder] = useState(false);
+    const onSubmit = (e) => {
+        e.preventDefault();
+        if(!title || !date) {
+            alert('Please input task and date');
+            return
+        }
+        addTask({date, title, reminder});
+
+        setDate('');
+        setTitle('');
+        setReminder(false);
+    }
     return (
-        <form className='add-form'>
+        <form className='add-form' onSubmit={onSubmit}>
             <div className='form-control'>
                 <label>Task</label>
-                <input type="text" placeholder={'Add Task'} value={task} onChange={(e)=> setTask(e.target.value)}/>
+                <input type="text" placeholder={'Add Task'} value={title} onChange={(e)=> setTitle(e.target.value)}/>
             </div>
             <div className='form-control'>
                 <label>Day &amp; Time</label>
@@ -18,7 +30,7 @@ const AddTask = () => {
 
             <div className='form-control form-control-check'>
                 <label>Set Reminder</label>
-                <input type="checkbox" value={reminder} onChange={(e)=> setReminder(e.currentTarget.checked)} />
+                <input type="checkbox" value={reminder} checked={reminder} onChange={(e)=> setReminder(e.currentTarget.checked)} />
             </div>
 
             <input type="submit" className='btn btn-block' value='Save Task'/>
