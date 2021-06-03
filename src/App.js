@@ -37,7 +37,7 @@ function App() {
             "reminder": false
         }
     ]);
-    const [formActive, setFormActive] = useState(false)
+    const [formActive, setFormActive] = useState(true)
 
     const deleteTask =(id)=> {
         // console.log('Id is: ', id)
